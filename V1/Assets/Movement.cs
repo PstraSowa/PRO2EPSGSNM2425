@@ -16,7 +16,7 @@ public class Movement : MonoBehaviour
     SpriteRenderer sr;
     float moveHorizontal;
 
- 
+
     void Start()
     {
         rb = GetComponent<Rigidbody>();
@@ -24,12 +24,15 @@ public class Movement : MonoBehaviour
         anim = GetComponentInChildren<Animator>();
     }
 
-   
+
     void Update()
     {
 
-        IsLeftDown = Input.GetKey(KeyCode.LeftShift); 
+        IsLeftDown = Input.GetKey(KeyCode.LeftShift);
+        IsUpArrowDown = Input.GetKey(KeyCode.UpArrow);
+        IsDownArrowDown = Input.GetKey(KeyCode.DownArrow);
         moveHorizontal = Input.GetAxis("Horizontal");
+
 
         if (Input.GetKeyDown(KeyCode.Space) && isGrounded)
         {
@@ -41,35 +44,52 @@ public class Movement : MonoBehaviour
         {
             sr.flipX = false;
         }
-        else if(moveHorizontal < 0)
+        else if (moveHorizontal < 0)
         {
-            sr.flipX = false;
+            sr.flipX = true;
         }
-        
-        if(moveHorizontal == 0)
-    {
-        anim.SetBool("Is Running", false);
-    }
-    else
-    {
-        anim.SetBool("Is Running", true);
+
+        if (moveHorizontal == 0)
+        {
+            anim.SetBool("Is Running", false);
+        }
+        else
+        {
+            anim.SetBool("Is Running", true);
+        }
+
     }
 
-        }
-    
     void FixedUpdate()
     {
         if (IsLeftDown)
         {
-            rb.velocity = new Vector3((moveHorizontal) * runSpeed * Time.deltaTime, rb.velocity.y,0);
+            rb.velocity = new Vector3((moveHorizontal) * runSpeed * Time.deltaTime, rb.velocity.y, 0);
         }
-        else 
+        else
         {
-            rb.velocity = new Vector3((moveHorizontal) * speed * Time.deltaTime, rb.velocity.y,0);
+            rb.velocity = new Vector3((moveHorizontal) * speed * Time.deltaTime, rb.velocity.y, 0);
         }
 
+        if (IsUpArrowDown)
+        {
+            rb.velocity = new Vector4(0, rb.velocity.y, (moveHorizontal) * speed * Time.deltaTime);
+        }
+        else
+        {
+            rb.velocity = new Vector4(0, rb.velocity.y, (moveHorizontal) * speed * Time.deltaTime);
+
+        }
+        if (IsDownArrowDown)
+        {
+            rb.velocity = new Vector4(0, rb.velocity.y, (-moveHorizontal) * speed * Time.deltaTime);
+        }
+        else
+        {
+            rb.velocity = new Vector4(0, rb.velocity.y, (-moveHorizontal) * speed * Time.deltaTime);
+        }
     }
-    
+
 
     private void OnCollisionEnter(Collision collision)
     {
