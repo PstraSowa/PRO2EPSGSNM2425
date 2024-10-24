@@ -7,8 +7,8 @@ public class Movement : MonoBehaviour
 {
 
     public float upForce = 1000;
-    public float speed = 20;
-    public float runSpeed = 100;
+    public float speed = 5;
+    public float runSpeed = 7;
     public bool isGrounded = false;
     public bool IsLeftDown = false;
     public bool IsUpArrowDown = false;
@@ -59,7 +59,7 @@ public class Movement : MonoBehaviour
             sr.flipX = true;
         }
 
-        if (moveHorizontal == 0 && moveVertical == 0 && isGrounded == true)
+        if (moveHorizontal == 0 && moveVertical == 0)
         {
             anim.SetBool("Is Running", false);
         }
