@@ -31,7 +31,7 @@ public class Movement : MonoBehaviour
     {
 
         IsLeftDown = Input.GetKey(KeyCode.LeftShift);
-        IsUpArrowDown = Input.GetKey(KeyCode.UpArrow);
+        //IsUpArrowDown = Input.GetKey(KeyCode.UpArrow);
         //IsDownArrowDown = Input.GetKey(KeyCode.DownArrow);
         moveHorizontal = Input.GetAxis("Horizontal");
         moveVertical = Input.GetAxis("Vertical");
@@ -59,7 +59,7 @@ public class Movement : MonoBehaviour
             sr.flipX = true;
         }
 
-        if (moveHorizontal == 0)
+        if (moveHorizontal == 0 && moveVertical == 0 && isGrounded == true)
         {
             anim.SetBool("Is Running", false);
         }
@@ -68,7 +68,10 @@ public class Movement : MonoBehaviour
             anim.SetBool("Is Running", true);
         }
 
-      
+       
+
+
+
 
     }
 
@@ -76,22 +79,22 @@ public class Movement : MonoBehaviour
     {
         if (IsLeftDown)
         {
-            rb.velocity = new Vector3((moveHorizontal) * runSpeed * Time.deltaTime, rb.velocity.y, 0);
+            rb.velocity = new Vector3((moveHorizontal) * runSpeed * Time.deltaTime, rb.velocity.y, (moveVertical) * runSpeed * Time.deltaTime);
         }
         else
         {
-            rb.velocity = new Vector3((moveHorizontal) * speed * Time.deltaTime, rb.velocity.y, 0);
+            rb.velocity = new Vector3((moveHorizontal) * speed * Time.deltaTime, rb.velocity.y, (moveVertical) * speed * Time.deltaTime);
         }
 
-        if (IsUpArrowDown)
-                {
-                    rb.velocity = new Vector4(0, rb.velocity.y, (moveVertical) * speed * Time.deltaTime);
-                }
-                else
-                {
-                    rb.velocity = new Vector4(0, rb.velocity.y, (moveVertical) * speed * Time.deltaTime);
+        //if (IsUpArrowDown)
+        //        {
+        //            rb.velocity = new Vector4(0, rb.velocity.y, );
+        //        }
+        //        else
+        //        {
+        //            rb.velocity = new Vector4(0, rb.velocity.y, );
 
-                }
+        //        }
         /*
                 if (IsDownArrowDown)
                 {
