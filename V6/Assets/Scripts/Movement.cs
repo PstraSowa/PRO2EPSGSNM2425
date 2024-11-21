@@ -40,7 +40,7 @@ public class Movement : MonoBehaviour
         {
             rb.AddForce(Vector3.up * upForce);
             isGrounded = false;
-            
+
         }
 
         if (isGrounded == false) { anim.SetBool("IsJumping", true); }
@@ -48,9 +48,9 @@ public class Movement : MonoBehaviour
         {
             anim.SetBool("IsJumping", false);
         }
-            
-            
-            if (moveHorizontal > 0)
+
+
+        if (moveHorizontal > 0)
         {
             sr.flipX = false;
         }
@@ -68,7 +68,7 @@ public class Movement : MonoBehaviour
             anim.SetBool("Is Running", true);
         }
 
-       
+
 
 
 
@@ -110,5 +110,13 @@ public class Movement : MonoBehaviour
     private void OnCollisionEnter(Collision collision)
     {
         isGrounded = true;
+    }
+
+    public void Save()
+    {
+        SaveData.instance.playerX = transform.position.x;
+        SaveData.instance.playerY = transform.position.y;
+        SaveData.instance.playerZ = transform.position.z;
+
     }
 }
