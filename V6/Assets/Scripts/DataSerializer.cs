@@ -3,7 +3,7 @@ using System.IO;
 using System.Runtime.Serialization.Formatters.Binary;
 using UnityEngine;
 
-public class DataSerializer : MonoBehaviour
+public class DataSerializer
 {
 
     public static void Save()
