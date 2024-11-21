@@ -918,7 +918,7 @@ GameObject:
   - component: {fileID: 420580181}
   - component: {fileID: 420580186}
   m_Layer: 0
-  m_Name: null
+  m_Name: HERO
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1024,7 +1024,7 @@ Transform:
   m_GameObject: {fileID: 420580180}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.95, y: 1.052, z: -3.28}
+  m_LocalPosition: {x: 0.9, y: 1.052, z: -3.28}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -1984,6 +1984,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0ee2b84b13d4c7140afcfffd417e66b5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  menuPanel: {fileID: 251676124}
+  playermovement: {fileID: 420580181}
 --- !u!1 &639771550
 GameObject:
   m_ObjectHideFlags: 0
@@ -2877,7 +2879,7 @@ Transform:
   m_GameObject: {fileID: 961739749}
   serializedVersion: 2
   m_LocalRotation: {x: 0.37392232, y: 0, z: 0, w: 0.9274601}
-  m_LocalPosition: {x: 0.95, y: 6.9071727, z: -8.32255}
+  m_LocalPosition: {x: 0.9, y: 6.9071727, z: -8.32255}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -5166,7 +5168,7 @@ Transform:
   m_GameObject: {fileID: 2041766840}
   serializedVersion: 2
   m_LocalRotation: {x: 0.37392232, y: -0, z: -0, w: 0.9274601}
-  m_LocalPosition: {x: 0.95, y: 6.9071727, z: -8.32255}
+  m_LocalPosition: {x: 0.9, y: 6.9071727, z: -8.32255}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:

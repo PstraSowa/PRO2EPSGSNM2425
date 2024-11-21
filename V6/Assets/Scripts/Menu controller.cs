@@ -12,6 +12,7 @@ public class Menucontroller : MonoBehaviour
         {
             menuPanel.SetActive(!menuPanel.activeSelf);
         }
+
     }
     public void NewGame()
     {
