@@ -1986,6 +1986,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   menuPanel: {fileID: 251676124}
   playermovement: {fileID: 420580181}
+  continueButton: {fileID: 1726187306}
 --- !u!1 &639771550
 GameObject:
   m_ObjectHideFlags: 0
