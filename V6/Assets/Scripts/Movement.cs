@@ -1,7 +1,9 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 [RequireComponent(typeof(Rigidbody))]
+[RequireComponent(typeof(CollectibleCounter))]
 
 public class Movement : MonoBehaviour
 {
@@ -118,5 +120,13 @@ public class Movement : MonoBehaviour
         SaveData.instance.playerY = transform.position.y;
         SaveData.instance.playerZ = transform.position.z;
 
+    }
+
+    public void Load()
+    {
+        transform.position = new Vector3(
+            SaveData.instance.playerX, 
+            SaveData.instance.playerY, 
+            SaveData.instance.playerZ);
     }
 }

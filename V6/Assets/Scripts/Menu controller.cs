@@ -8,6 +8,7 @@ public class Menucontroller : MonoBehaviour
     public GameObject menuPanel;
     public Movement playermovement;
     public Button continueButton;
+    public CollectibleCounter collectibleCounter;
 
     public void Update()
     {
@@ -18,7 +19,7 @@ public class Menucontroller : MonoBehaviour
 
     }
 
-    public void Start()
+    public void Awake()
     {
         if (DataSerializer.AnySaves() == false)
         {
@@ -39,6 +40,7 @@ public class Menucontroller : MonoBehaviour
     {
         playermovement.Save();
         DataSerializer.Save();
+        collectibleCounter.Save();
 
         if (DataSerializer.AnySaves() == true)
         {
@@ -49,8 +51,13 @@ public class Menucontroller : MonoBehaviour
 
     public void Continue()
     {
+        if (DataSerializer.AnySaves()) { 
         DataSerializer.Load();
+        playermovement.Load();
+        collectibleCounter.Load();
+
         menuPanel.SetActive(!menuPanel.activeSelf);
+        }
     }
 
     public void Exit()
