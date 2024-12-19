@@ -769,6 +769,37 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e25962a23b0ae06459d988ce85f4476e, type: 3}
+--- !u!1 &269085088
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 269085089}
+  m_Layer: 0
+  m_Name: Point (2)
+  m_TagString: Untagged
+  m_Icon: {fileID: 6519382022992737161, guid: 0000000000000000d000000000000000, type: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &269085089
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 269085088}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 6.36, y: 0.61, z: -11.81}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &304949966
 GameObject:
   m_ObjectHideFlags: 0
@@ -1115,7 +1146,6 @@ GameObject:
   - component: {fileID: 432648419}
   - component: {fileID: 432648418}
   - component: {fileID: 432648417}
-  - component: {fileID: 432648416}
   - component: {fileID: 432648415}
   - component: {fileID: 432648421}
   m_Layer: 0
@@ -1147,33 +1177,6 @@ NavMeshAgent:
   m_BaseOffset: 1
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
---- !u!54 &432648416
-Rigidbody:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 432648414}
-  serializedVersion: 4
-  m_Mass: 1
-  m_Drag: 0
-  m_AngularDrag: 0.05
-  m_CenterOfMass: {x: 0, y: 0, z: 0}
-  m_InertiaTensor: {x: 1, y: 1, z: 1}
-  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ImplicitCom: 1
-  m_ImplicitTensor: 1
-  m_UseGravity: 1
-  m_IsKinematic: 0
-  m_Interpolate: 0
-  m_Constraints: 112
-  m_CollisionDetection: 0
 --- !u!136 &432648417
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -1276,7 +1279,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   agent: {fileID: 0}
-  point1: {fileID: 373097544}
+  stoppingDistanceCheck: 0.01
+  targetIndex: 0
+  points:
+  - {fileID: 373097544}
+  - {fileID: 1643381204}
+  - {fileID: 269085089}
 --- !u!1001 &452072176
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5184,7 +5192,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   agent: {fileID: 0}
-  point1: {fileID: 373097544}
+  stoppingDistanceCheck: 0.01
+  targetIndex: 0
+  points: []
 --- !u!1 &1643381203
 GameObject:
   m_ObjectHideFlags: 0
@@ -5769,6 +5779,7 @@ SceneRoots:
   - {fileID: 432648420}
   - {fileID: 373097544}
   - {fileID: 1643381204}
+  - {fileID: 269085089}
   - {fileID: 1141922772}
   - {fileID: 1497794199}
   - {fileID: 2041766842}
